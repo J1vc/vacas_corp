@@ -27,12 +27,13 @@ class VacasCorp:
             print(f"Nombre: {actual.nombre}, Codigo: {actual.codigo}, Raza: {actual.raza}, Peso: {actual.peso} Kg")
             actual = actual.next
 
-    def listar_vacas_menor_peso(self,peso_limite):
+    def listar_vacas_menor_peso(self, peso_limite):
         actual = self.head
         while actual:
             if actual.peso < peso_limite:
                 print(f"Nombre: {actual.nombre}, Codigo: {actual.codigo}, Raza: {actual.raza}, Peso: {actual.peso}")
             actual = actual.next
+
 
     def nueva_vaca_posicion(self, nombre, codigo, raza, peso, posicion):
         nueva_vaca = Vaca(nombre, codigo, raza, peso)
@@ -54,6 +55,12 @@ class VacasCorp:
         else:
             nueva_vaca.next = actual.next
             actual.next = nueva_vaca
+        
+    def listar_vacas_nombre(self):
+        actual = self.head
+        while actual:
+            print(actual.nombre)
+            actual = actual.next
 
 vacas_corp = VacasCorp()
 
@@ -70,3 +77,6 @@ vacas_corp.listar_vacas_menor_peso(470)
 print("\nNueva vaca en la posicion 3:")
 vacas_corp.nueva_vaca_posicion("Rosa", 5, "Angus", 460, 3)
 vacas_corp.mostrar_vacas()
+
+print("\nListado de nombres de las vacas:")
+vacas_corp.listar_vacas_nombre()
